@@ -1,7 +1,7 @@
 {
   "name": "icon2react",
-  "description": "",
-  "version": "0.1.0",
+  "description": "a sketch plugin to converting icons to React Components",
+  "version": "1.0.0",
   "engines": {
     "sketch": ">=49.0"
   },
@@ -33,5 +33,6 @@
     "lodash": "^4.17.21",
     "sketch": "^0.2.0",
     "svgo": "^2.8.0"
-  }
+  },
+    "repository": "https://github.com/jjj201200/icon2React.git"
 }
