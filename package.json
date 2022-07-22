@@ -1,0 +1,37 @@
+{
+  "name": "icon2react",
+  "description": "",
+  "version": "0.1.0",
+  "engines": {
+    "sketch": ">=49.0"
+  },
+  "skpm": {
+    "name": "icon2React",
+    "manifest": "src/manifest.json",
+    "main": "icon2react.sketchplugin",
+    "assets": [
+      "assets/**/*"
+    ],
+    "sketch-assets-file": "sketch-assets/icons.sketch"
+  },
+  "scripts": {
+    "build": "skpm-build",
+    "watch": "skpm-build --watch",
+    "start": "skpm-build --watch --run",
+    "postinstall": "npm run build && skpm-link"
+  },
+  "devDependencies": {
+    "@skpm/builder": "^0.8.0"
+  },
+  "author": "DrowsyFlesh <jjj201200@gmail.com>",
+  "dependencies": {
+    "@skpm/dialog": "^0.4.2",
+    "@skpm/fs": "^0.2.6",
+    "@skpm/os": "^0.1.1",
+    "@skpm/path": "^0.1.4",
+    "ejs": "^3.1.8",
+    "lodash": "^4.17.21",
+    "sketch": "^0.2.0",
+    "svgo": "^2.8.0"
+  }
+}

@@ -1,0 +1,13 @@
+{
+    "$schema": "https://raw.githubusercontent.com/sketch-hq/SketchAPI/develop/docs/sketch-plugin-manifest-schema.json",
+    "identifier": "com.sketchapp.plugins.icon2react",
+    "icon": "icon.png",
+    "commands": [
+        {
+            "name": "Icon2React",
+            "identifier": "icon2react",
+            "scope": "application",
+            "script": "./index.js"
+        }
+    ]
+}
