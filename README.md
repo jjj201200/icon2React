@@ -1,4 +1,10 @@
-# icon2React
+# Icon2React
+
+## Introduction
+
+This is a plugin which been used to convert icons (all [Symbol](https://developer.sketch.com/reference/api/#symbol-source) in sketch document) to react components.
+
+You must ensure that all Symbols are what you want to export. And at last, all icon components will in 'Icons' directory where you selected.
 
 ## Installation
 

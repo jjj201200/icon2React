@@ -11,10 +11,7 @@ import ICON_TEMPLATE from './templates/named-icon.js';
 import TYPE_TEMPLATE from './templates/types.js';
 import svgoConfig from '../svgo.config';
 import {createFiber} from 'sketch/async';
-//import ENTRY_TEMPLATE from './templates/entry.js';
 
-//await loadConfig();
-//const UI = require('sketch/ui');
 
 export default function() {
     const document = sketch.getSelectedDocument();
@@ -50,7 +47,7 @@ export default function() {
     const svgContents = readFilesSync(targetSavePath, tempPath2SaveSvg);
     const svgContentMap = Object.entries(svgContents);
     const sum = svgContentMap.length;
-    //const iconNameList = [];
+
     svgContentMap.forEach(([filePath, svgString], index) => {
         const tempOptimizedPath = path.resolve(tempPath2SaveSvg, 'optimized', filePath);
         const result = optimize(svgString, {
@@ -62,7 +59,6 @@ export default function() {
                                          .replace('props="..."', '{...props}')
                                          .replace('ref="forwardedRef"', 'ref={forwardedRef}')
                                          .replace(/(\w+-\w+)="/g, (match) => `${_.camelCase(match)}="`);
-        //console.log(savePath, templates.component, filePath, optimisedSvgString);
 
         const componentName = filePath.split(path.sep).slice(-1).join() + 'Icon';
         const selfPath = filePath.split(path.sep).slice(0, -1).join(path.sep);
@@ -70,20 +66,16 @@ export default function() {
 
         const componentSource = ICON_TEMPLATE(componentName, filePath.split(path.sep).slice(0, -1).length, optimisedSvgString);
 
-        //console.log(fs.existsSync(targetFileSavePath));
         if (!fs.existsSync(targetFileSavePath)) {
             console.log(targetSavePath, selfPath);
             fs.mkdirSync(targetFileSavePath, {recursive: true});
         }
-        //console.log('save path', targetFileSavePath, componentName);
 
         fs.writeFileSync(path.resolve(targetFileSavePath, componentName) + '.tsx', componentSource);
-        //iconNameList.push(componentName);
 
         UI.message(`Icon → React: Convert progress ${index + 1}/${sum}`);
     });
 
-    //fs.writeFileSync(path.resolve(targetSavePath, 'index.ts'), ENTRY_TEMPLATE(iconNameList.sort()));
     fs.writeFileSync(path.resolve(targetSavePath, 'types.ts'), TYPE_TEMPLATE);
 
     // clear temp directory
